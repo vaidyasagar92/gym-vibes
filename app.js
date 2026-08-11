@@ -65,7 +65,7 @@ const playlists = {
         name: "ENERGETIC WORKOUT",
 
         playlistId:
-            "PLu0ocO48LFms5WsI1ipaeanxqRjn2fC_5",
+            "PLupLVM4UvuzJ2MvBQZSawFmgNnXcnTN2w",
 
         image:
             "images/gym-01.jpg"
