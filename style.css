@@ -1,0 +1,1292 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+html {
+    background: #000;
+}
+
+
+body {
+    background: #000;
+    color: #fff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow: hidden;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ==========================================
+   INITIAL LOADING FIX
+========================================== */
+
+body.loading {
+    background: #000;
+}
+
+
+.app {
+    position: relative;
+
+    width: 100vw;
+    height: 100dvh;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+body.ready .app {
+    opacity: 1;
+}
+
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+.background img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 1;
+
+    transform: scale(1.03);
+
+    transition:
+        opacity 1.2s ease,
+        transform 10s ease;
+}
+
+
+.background-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(0, 0, 0, 0.48) 38%,
+            rgba(0, 0, 0, 0.58) 70%,
+            rgba(0, 0, 0, 0.97) 100%
+        );
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+    position: fixed;
+
+    top: 28px;
+    left: 55px;
+    right: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 50;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   BRAND
+========================================== */
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    pointer-events: auto;
+}
+
+
+.brand-icon {
+    font-size: 42px;
+
+    line-height: 1;
+
+    color: #ffbd00;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255, 189, 0, 0.55)
+        );
+}
+
+
+.brand-name {
+    font-size: 29px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+
+.brand-name span {
+    color: #ffbd00;
+}
+
+
+.brand-tagline {
+    margin-top: 5px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(255,255,255,0.68);
+}
+
+
+/* ==========================================
+   HEADER RIGHT
+========================================== */
+
+.header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+    pointer-events: auto;
+}
+
+
+/* ==========================================
+   LIVE RADIO
+========================================== */
+
+.live-radio {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #ff3030;
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 48, 48, 0.9);
+
+    animation:
+        livePulse 1.5s ease-in-out infinite;
+}
+
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(0.75);
+    }
+
+}
+
+
+/* ==========================================
+   HEADER VIBE
+========================================== */
+
+.header-vibe {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.header-vibe label {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,0.55);
+}
+
+
+.mood-select {
+    width: 190px;
+
+    height: 45px;
+
+    padding: 0 42px 0 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background:
+        rgba(8,8,8,0.88);
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    appearance: none;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            transparent 50%,
+            #fff 50%
+        ),
+        linear-gradient(
+            135deg,
+            #fff 50%,
+            transparent 50%
+        );
+
+    background-position:
+        calc(100% - 19px) 19px,
+        calc(100% - 13px) 19px;
+
+    background-size:
+        6px 6px,
+        6px 6px;
+
+    background-repeat: no-repeat;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.mood-select:hover {
+    border-color:
+        rgba(255,189,0,0.7);
+}
+
+
+.mood-select:focus {
+    border-color: #ffbd00;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,189,0,0.10);
+}
+
+
+.mood-select option {
+    background: #111;
+
+    color: #fff;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.main-content {
+    position: absolute;
+
+    z-index: 10;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(1000px, 90vw);
+
+    transform:
+        translate(-50%, -50%);
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   EQUALIZER
+========================================== */
+
+.equalizer {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 6px;
+
+    height: 45px;
+
+    margin-bottom: 20px;
+}
+
+
+.equalizer span {
+    display: block;
+
+    width: 6px;
+
+    border-radius: 5px;
+
+    background: #ffbd00;
+
+    animation:
+        equalizer 0.8s
+        ease-in-out
+        infinite alternate;
+}
+
+
+.equalizer span:nth-child(1) {
+    height: 25px;
+    animation-delay: 0.1s;
+}
+
+
+.equalizer span:nth-child(2) {
+    height: 39px;
+    animation-delay: 0.2s;
+}
+
+
+.equalizer span:nth-child(3) {
+    height: 31px;
+    animation-delay: 0.3s;
+}
+
+
+.equalizer span:nth-child(4) {
+    height: 44px;
+    animation-delay: 0.1s;
+}
+
+
+.equalizer span:nth-child(5) {
+    height: 31px;
+    animation-delay: 0.25s;
+}
+
+
+.equalizer span:nth-child(6) {
+    height: 25px;
+    animation-delay: 0.4s;
+}
+
+
+.equalizer.paused span {
+    animation-play-state: paused;
+}
+
+
+@keyframes equalizer {
+
+    from {
+        transform: scaleY(0.45);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+
+}
+
+
+/* ==========================================
+   NOW PLAYING
+========================================== */
+
+.now-playing-label {
+    margin-bottom: 13px;
+
+    font-size: 12px;
+
+    letter-spacing: 7px;
+
+    color:
+        rgba(255,255,255,0.65);
+}
+
+
+.main-content h1 {
+    margin-bottom: 18px;
+
+    font-size:
+        clamp(
+            40px,
+            6vw,
+            82px
+        );
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.song-title {
+    min-height: 25px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 17px;
+
+    color:
+        rgba(255,255,255,0.76);
+}
+
+
+/* ==========================================
+   CURRENT VIBE
+========================================== */
+
+.current-vibe {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+    padding: 9px 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
+
+    border-radius: 25px;
+
+    background:
+        rgba(0,0,0,0.42);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.current-vibe span {
+    color:
+        rgba(255,255,255,0.52);
+}
+
+
+.current-vibe strong {
+    color: #ffbd00;
+}
+
+
+/* ==========================================
+   PLAYER
+========================================== */
+
+.player-container {
+    width: min(650px, 90vw);
+
+    margin: 25px auto 0;
+
+    padding: 16px 25px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    border-radius: 18px;
+
+    background:
+        rgba(0,0,0,0.52);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+}
+
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+.progress-row {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.time {
+    width: 38px;
+
+    font-size: 11px;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+.progress-bar {
+    flex: 1;
+
+    width: 100%;
+
+    height: 5px;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.22);
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+.progress-bar::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ffbd00;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,189,0,0.45);
+}
+
+
+.progress-bar::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ffbd00;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   CONTROLS
+========================================== */
+
+.controls {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-top: 16px;
+}
+
+
+.control-button,
+.play-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.control-button {
+    width: 56px;
+    height: 56px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    background:
+        rgba(0,0,0,0.55);
+
+    color: #fff;
+
+    font-size: 18px;
+}
+
+
+.play-button {
+    width: 72px;
+    height: 72px;
+
+    border: none;
+
+    background: #ffbd00;
+
+    color: #000;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(255,189,0,0.25);
+}
+
+
+.control-button:hover {
+    border-color: #ffbd00;
+
+    color: #ffbd00;
+
+    transform: scale(1.06);
+}
+
+
+.play-button:hover {
+    transform: scale(1.07);
+
+    background: #ffc933;
+}
+
+
+.control-button:active,
+.play-button:active {
+    transform: scale(0.96);
+}
+
+
+/* ==========================================
+   FULLSCREEN BUTTON
+========================================== */
+
+.fullscreen-button {
+    position: fixed;
+
+    right: 30px;
+    bottom: 28px;
+
+    z-index: 100;
+
+    width: 50px;
+    height: 50px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.30);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.65);
+
+    color: #fff;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    transition:
+        0.25s ease;
+}
+
+
+.fullscreen-button:hover {
+    border-color: #ffbd00;
+
+    color: #ffbd00;
+
+    transform: scale(1.06);
+}
+
+
+/* ==========================================
+   HIDDEN YOUTUBE PLAYER
+========================================== */
+
+.youtube-player {
+    position: fixed;
+
+    width: 2px;
+    height: 2px;
+
+    left: -20px;
+    top: -20px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+
+    .header {
+        left: 30px;
+        right: 30px;
+    }
+
+
+    .header-right {
+        gap: 15px;
+    }
+
+
+    .header-vibe label {
+        display: none;
+    }
+
+
+    .main-content {
+        width: 92vw;
+    }
+
+
+    .main-content h1 {
+        font-size:
+            clamp(
+                38px,
+                7vw,
+                68px
+            );
+    }
+
+
+    .player-container {
+        width: min(620px, 90vw);
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow: hidden;
+    }
+
+
+    .header {
+        top: 16px;
+
+        left: 18px;
+        right: 18px;
+
+        align-items: flex-start;
+    }
+
+
+    .brand {
+        gap: 9px;
+    }
+
+
+    .brand-icon {
+        font-size: 30px;
+    }
+
+
+    .brand-name {
+        font-size: 19px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .brand-tagline {
+        font-size: 7px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .header-right {
+        flex-direction: column;
+
+        align-items: flex-end;
+
+        gap: 9px;
+    }
+
+
+    .live-radio {
+        font-size: 9px;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    .live-dot {
+        width: 7px;
+        height: 7px;
+    }
+
+
+    .header-vibe {
+        display: block;
+    }
+
+
+    .mood-select {
+        width: 145px;
+
+        height: 39px;
+
+        font-size: 12px;
+
+        padding-left: 12px;
+    }
+
+
+    .main-content {
+        top: 47%;
+
+        width: 92vw;
+    }
+
+
+    .equalizer {
+        height: 35px;
+
+        margin-bottom: 13px;
+    }
+
+
+    .equalizer span {
+        width: 5px;
+    }
+
+
+    .now-playing-label {
+        font-size: 8px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .main-content h1 {
+        font-size:
+            clamp(
+                30px,
+                9vw,
+                48px
+            );
+
+        letter-spacing: 1px;
+
+        line-height: 1.05;
+    }
+
+
+    .song-title {
+        max-width: 90vw;
+
+        font-size: 13px;
+    }
+
+
+    .current-vibe {
+        margin-top: 14px;
+
+        padding: 8px 13px;
+
+        font-size: 8px;
+    }
+
+
+    .player-container {
+        width: 100%;
+
+        margin-top: 17px;
+
+        padding: 13px 15px 15px;
+
+        border-radius: 14px;
+    }
+
+
+    .progress-row {
+        gap: 8px;
+    }
+
+
+    .time {
+        width: 32px;
+
+        font-size: 9px;
+    }
+
+
+    .progress-bar {
+        height: 4px;
+    }
+
+
+    .progress-bar::-webkit-slider-thumb {
+        width: 14px;
+        height: 14px;
+    }
+
+
+    .controls {
+        gap: 12px;
+
+        margin-top: 13px;
+    }
+
+
+    .control-button {
+        width: 48px;
+        height: 48px;
+
+        font-size: 16px;
+    }
+
+
+    .play-button {
+        width: 62px;
+        height: 62px;
+
+        font-size: 19px;
+    }
+
+
+    .fullscreen-button {
+        right: 17px;
+        bottom: 17px;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 18px;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .header {
+        top: 12px;
+
+        left: 12px;
+        right: 12px;
+    }
+
+
+    .brand-icon {
+        font-size: 25px;
+    }
+
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+
+    .brand-tagline {
+        font-size: 6px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .live-radio {
+        font-size: 7px;
+
+        letter-spacing: 0.8px;
+    }
+
+
+    .mood-select {
+        width: 125px;
+
+        height: 36px;
+
+        font-size: 11px;
+    }
+
+
+    .main-content {
+        top: 49%;
+    }
+
+
+    .main-content h1 {
+        font-size: 29px;
+    }
+
+
+    .song-title {
+        font-size: 11px;
+    }
+
+
+    .current-vibe {
+        font-size: 7px;
+
+        gap: 7px;
+    }
+
+
+    .player-container {
+        margin-top: 14px;
+    }
+
+
+    .control-button {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    .play-button {
+        width: 58px;
+        height: 58px;
+    }
+
+
+    .fullscreen-button {
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+
+/* ==========================================
+   LANDSCAPE MOBILE
+========================================== */
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+    .header {
+        top: 10px;
+    }
+
+
+    .main-content {
+        top: 52%;
+    }
+
+
+    .equalizer {
+        margin-bottom: 5px;
+
+        height: 25px;
+    }
+
+
+    .main-content h1 {
+        font-size: 32px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .song-title {
+        font-size: 12px;
+    }
+
+
+    .current-vibe {
+        margin-top: 8px;
+    }
+
+
+    .player-container {
+        margin-top: 10px;
+
+        padding: 8px 15px 10px;
+    }
+
+
+    .controls {
+        margin-top: 8px;
+    }
+
+
+    .control-button {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .play-button {
+        width: 54px;
+        height: 54px;
+    }
+
+}
+
+
+/* ==========================================
+   IOS SAFE AREA
+========================================== */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+
+    .header {
+        top:
+            max(
+                16px,
+                env(safe-area-inset-top)
+            );
+    }
+
+
+    .fullscreen-button {
+        right:
+            max(
+                17px,
+                env(safe-area-inset-right)
+            );
+
+        bottom:
+            max(
+                17px,
+                env(safe-area-inset-bottom)
+            );
+    }
+
+}
